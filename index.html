@@ -148,8 +148,8 @@
         /* Recuadros más pequeños */
         .recuadros-container {
             overflow: hidden;
-            position: relative;
             width: 100%;
+            position: relative;
         }
 
         .recuadros {
@@ -226,8 +226,8 @@
         }
 
         .whatsapp-icon {
-            width: 30px;
-            height: 30px;
+            width: 24px;
+            height: 24px;
             margin-right: 10px;
         }
 
@@ -262,10 +262,14 @@
                 font-size: 1.8rem;
             }
 
-            .recuadros {
-                display: flex;
+            .recuadros-container {
                 overflow-x: auto;
                 scroll-snap-type: x mandatory;
+                scroll-behavior: smooth;
+            }
+
+            .recuadros {
+                display: flex;
                 gap: 10px;
                 padding: 10px;
             }
@@ -340,14 +344,12 @@
             <div class="recuadro"><img src="tutor.jpg" alt="Tutores"><p>Estudia acompañado: Guía y apoyo de tutores expertos en cada etapa de tu formación.</p></div>
             <div class="recuadro"><img src="inversion.jpg" alt="Inversión"><p>Invierte en ti mismo</p></div>
         </div>
-        <button class="carrusel-btn prev" onclick="moveRecuadros(-1)">&#10094;</button>
-        <button class="carrusel-btn next" onclick="moveRecuadros(1)">&#10095;</button>
     </div>
 
     <!-- Botón flotante de WhatsApp -->
     <a href="https://wa.me/5211234567890" target="_blank" class="whatsapp-float">
         <img src="whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon">
-        <span>INSCRÍBETE, FORMA PARTE DE ESPI</span>
+        <span>CONTÁCTANOS</span>
     </a>
 
     <script>
@@ -374,17 +376,6 @@
         }
 
         setInterval(autoSlide, 3000); // Cambia la imagen cada 3 segundos
-
-        // Carrusel de recuadros
-        const recuadrosContainer = document.querySelector('.recuadros');
-        const recuadroWidth = document.querySelector('.recuadro').offsetWidth + 20; // Ancho del recuadro + gap
-        let currentRecuadroIndex = 0;
-
-        function moveRecuadros(n) {
-            const totalRecuadros = document.querySelectorAll('.recuadro').length;
-            currentRecuadroIndex = (currentRecuadroIndex + n + totalRecuadros) % totalRecuadros;
-            recuadrosContainer.style.transform = `translateX(-${currentRecuadroIndex * recuadroWidth}px)`;
-        }
     </script>
 </body>
 </html>
