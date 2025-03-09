@@ -16,23 +16,26 @@
         .navbar {
             width: 100%;
             background: rgba(0, 0, 0, 0.8);
-            padding: 15px;
+            padding: 10px;
             position: fixed;
             top: 0;
             display: flex;
             justify-content: center;
             align-items: center;
+            z-index: 1000;
         }
 
         .nav-links {
             display: flex;
-            gap: 20px;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .navbar a {
             color: white;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 16px;
             transition: color 0.3s;
         }
 
@@ -42,21 +45,22 @@
 
         .hero {
             text-align: center;
-            padding: 50px 20px;
+            padding: 100px 20px 50px;
             background: rgba(0, 0, 0, 0.5);
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin-top: 80px;
+            margin-top: 60px;
         }
 
         .hero img {
             height: 80px;
-            margin-right: 20px;
+            margin-bottom: 20px;
         }
 
         .hero h1 {
-            font-size: 50px;
+            font-size: 2.5rem;
             font-weight: bold;
             text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
             animation: fadeInZoom 1.5s ease-in-out;
@@ -69,7 +73,7 @@
         }
 
         .carrusel {
-            max-width: 800px;
+            max-width: 90%;
             margin: 20px auto;
             position: relative;
             overflow: hidden;
@@ -94,7 +98,7 @@
             display: flex;
             justify-content: space-between;
             transform: translateY(-50%);
-            padding: 0 20px;
+            padding: 0 10px;
         }
 
         .btn-carrusel {
@@ -126,30 +130,30 @@
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            width: 300px;
+            width: 100%;
+            max-width: 300px;
         }
 
         .recuadro img {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             object-fit: cover;
             border-radius: 50%;
             margin-bottom: 10px;
         }
 
-        /* Estilos para el botón flotante de WhatsApp */
         .whatsapp-float {
             position: fixed;
             bottom: 20px;
             right: 20px;
             z-index: 1000;
-            background-color: #25d366; /* Verde de WhatsApp */
-            border-radius: 10px; /* Bordes redondeados */
+            background-color: #25d366;
+            border-radius: 10px;
             padding: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s;
             text-decoration: none;
-            color: white; /* Texto en blanco */
+            color: white;
             font-size: 14px;
             display: flex;
             align-items: center;
@@ -157,12 +161,45 @@
         }
 
         .whatsapp-float:hover {
-            transform: scale(1.05); /* Efecto de escala al pasar el mouse */
+            transform: scale(1.05);
         }
 
         .whatsapp-icon {
-            width: 30px; /* Tamaño del ícono de WhatsApp */
-            height: 30px;
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Media Queries para móviles */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .navbar a {
+                font-size: 14px;
+            }
+
+            .recuadros {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .recuadro {
+                width: 90%;
+                max-width: none;
+            }
+
+            .whatsapp-float {
+                bottom: 10px;
+                right: 10px;
+                padding: 8px;
+                font-size: 12px;
+            }
+
+            .whatsapp-icon {
+                width: 20px;
+                height: 20px;
+            }
         }
     </style>
 </head>
@@ -172,7 +209,7 @@
             <a href="#">Inicio</a>
             <a href="#about">Sobre Nosotros</a>
             <a href="#contact">Contacto</a>
-            <a href="#" onclick="alert('La plataforma estudiantil estará disponible próximamente.')">Ingresar a Plataforma Estudiantil</a>
+            <a href="#" onclick="alert('La plataforma estudiantil estará disponible próximamente.')">Plataforma Estudiantil</a>
         </div>
     </div>
 
