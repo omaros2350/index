@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Estudios Profesionales y de Investigación ESPI. S.C.</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('imagen.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        .navbar {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            position: fixed;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #00bfff;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 80px;
+        }
+
+        .hero img {
+            height: 80px;
+            margin-right: 20px;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            font-weight: bold;
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeInZoom 1.5s ease-in-out;
+            margin: 0;
+        }
+
+        @keyframes fadeInZoom {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .carrusel {
+            max-width: 800px;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .carrusel img {
+            width: 100%;
+            display: none;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .carrusel img.active {
+            display: block;
+        }
+
+        .carrusel-btns {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 20px;
+        }
+
+        .btn-carrusel {
+            background-color: rgba(0, 0, 0, 0.4);
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+            font-size: 18px;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .btn-carrusel:hover {
+            opacity: 1;
+        }
+
+        .recuadros {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .recuadro {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+        }
+
+        .recuadro img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        /* Estilos para el botón flotante de WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #25d366; /* Verde de WhatsApp */
+            border-radius: 10px; /* Bordes redondeados */
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+            text-decoration: none;
+            color: white; /* Texto en blanco */
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.05); /* Efecto de escala al pasar el mouse */
+        }
+
+        .whatsapp-icon {
+            width: 30px; /* Tamaño del ícono de WhatsApp */
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-links">
+            <a href="#">Inicio</a>
+            <a href="#about">Sobre Nosotros</a>
+            <a href="#contact">Contacto</a>
+            <a href="#" onclick="alert('La plataforma estudiantil estará disponible próximamente.')">Ingresar a Plataforma Estudiantil</a>
+        </div>
+    </div>
+
+    <div class="hero">
+        <img src="ESPI.png" alt="Logo ESPI">
+        <h1>Bienvenidos a ESPI</h1>
+    </div>
+
+    <div class="carrusel">
+        <img src="pedagogia1.jpg" class="active" alt="Pedagogía 1">
+        <img src="pedagogia2.jpg" alt="Pedagogía 2">
+        <img src="pedagogia3.jpg" alt="Pedagogía 3">
+        <img src="pedagogia4.jpg" alt="Pedagogía 4">
+        <div class="carrusel-btns">
+            <button class="btn-carrusel" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="btn-carrusel" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+    </div>
+
+    <div class="recuadros">
+        <div class="recuadro"><img src="digitales.jpg" alt="Nativos Digitales"><p>Porque somos nativos digitales: estudia sin pisar un salón de clases</p></div>
+        <div class="recuadro"><img src="titulo.jpg" alt="Graduación"><p>Gradúate con título profesional</p></div>
+        <div class="recuadro"><img src="empleo.jpg" alt="Empleo"><p>Demuestra tu conocimiento en tu siguiente oportunidad laboral.</p></div>
+        <div class="recuadro"><img src="global.jpg" alt="Comunidad"><p>Comunidad Global: Enriquece tu educación con personas de todo el mundo.</p></div>
+        <div class="recuadro"><img src="campus.jpg" alt="Campus Virtual"><p>Campus virtual 24/7: Crea tu propio horario con las clases, materiales y apoyo disponibles.</p></div>
+        <div class="recuadro"><img src="calidad.jpg" alt="Calidad"><p>Calidad en acción: Suma credenciales a tu perfil de nuestras alianzas con reconocidas instituciones.</p></div>
+        <div class="recuadro"><img src="tutor.jpg" alt="Tutores"><p>Estudia acompañado: Guía y apoyo de tutores expertos en cada etapa de tu formación.</p></div>
+        <div class="recuadro"><img src="inversion.jpg" alt="Inversión"><p>Invierte en ti mismo</p></div>
+    </div>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/5211234567890" target="_blank" class="whatsapp-float">
+        <img src="whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon">
+        <span>CONTÁCTANOS</span>
+    </a>
+
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.carrusel img');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            if (index >= totalSlides) slideIndex = 0;
+            if (index < 0) slideIndex = totalSlides - 1;
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[slideIndex].classList.add('active');
+        }
+
+        function moveSlide(n) {
+            slideIndex += n;
+            showSlide(slideIndex);
+        }
+
+        function autoSlide() {
+            slideIndex++;
+            showSlide(slideIndex);
+        }
+
+        setInterval(autoSlide, 2000); // Cambia la imagen cada 2 segundos
+    </script>
+</body>
+</html>
