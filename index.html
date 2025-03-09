@@ -181,6 +181,43 @@
             transform: scale(1.1);
         }
 
+        /* Botón flotante de WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-size: 14px;
+            z-index: 1000;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite, border-glow 2s infinite;
+        }
+
+        .whatsapp-icon {
+            width: 30px; /* Tamaño reducido */
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        /* Animación de viñeta */
+        @keyframes border-glow {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
         /* Media Queries para móviles */
         @media (max-width: 768px) {
             .hero h1 {
@@ -222,7 +259,7 @@
             .whatsapp-float {
                 bottom: 10px;
                 right: 10px;
-                padding: 8px;
+                padding: 8px 16px;
                 font-size: 12px;
             }
 
@@ -281,7 +318,7 @@
     <!-- Botón flotante de WhatsApp -->
     <a href="https://wa.me/5211234567890" target="_blank" class="whatsapp-float">
         <img src="whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon">
-        <span>CONTÁCTANOS</span>
+        <span>INSCRÍBETE, FORMA PARTE DE ESPI</span>
     </a>
 
     <script>
