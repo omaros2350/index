@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Nosotros - ESPI</title>
     <style>
-        /* Estilos generales (se mantienen igual) */
+        /* Estilos generales */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -14,10 +14,11 @@
             color: white;
         }
 
+        /* Barra de navegación */
         .navbar {
             width: 100%;
             background: rgba(0, 0, 0, 0.8);
-            padding: 10px 20px;
+            padding: 15px 20px;
             position: fixed;
             top: 0;
             display: flex;
@@ -27,18 +28,19 @@
         }
 
         .navbar .logo {
-            height: 30px;
+            height: 40px;
+            cursor: pointer;
         }
 
         .nav-links {
             display: flex;
-            gap: 15px;
+            gap: 20px;
         }
 
         .navbar a {
             color: white;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 18px;
             transition: color 0.3s;
         }
 
@@ -46,49 +48,85 @@
             color: #00bfff;
         }
 
+        /* Hero section con animación */
         .hero {
             text-align: center;
-            padding: 100px 20px 50px;
+            padding: 120px 20px 50px;
             background: rgba(0, 0, 0, 0.5);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin-top: 60px;
+            margin-top: 80px;
         }
 
         .hero img {
-            height: 50px;
-            margin-bottom: 10px;
+            height: 100px;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         .hero h1 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: bold;
             text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
             margin: 0;
+            animation: fadeInZoom 1.5s ease-in-out;
         }
 
-        .content {
+        @keyframes fadeInZoom {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Sección de Misión y Visión */
+        .mision-vision {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 20px auto;
             padding: 20px;
             background: rgba(0, 0, 0, 0.5);
-            max-width: 800px;
-            margin: 20px auto;
             border-radius: 10px;
-            text-align: center;
         }
 
-        .content h2 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+        .mision, .vision {
+            flex: 1;
+            min-width: 300px;
+            margin: 10px;
         }
 
-        .content p {
+        .mision h2, .vision h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #00bfff;
+        }
+
+        .mision p, .vision p {
             font-size: 1rem;
             line-height: 1.6;
         }
 
-        /* Medios de contacto (modificado) */
+        .mision img, .vision img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            margin-top: 20px;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Medios de contacto */
         .medios-contacto {
             padding: 20px;
             background: rgba(0, 0, 0, 0.5);
@@ -131,7 +169,7 @@
             color: #ccc;
         }
 
-        /* Botón flotante de WhatsApp (se mantiene igual) */
+        /* Botón flotante de WhatsApp */
         .whatsapp-float {
             position: fixed;
             bottom: 20px;
@@ -159,25 +197,38 @@
             height: 24px;
         }
 
-        /* Media Queries para móviles (se mantienen igual) */
+        /* Media Queries para móviles */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             .navbar a {
-                font-size: 12px;
+                font-size: 16px;
             }
 
-            .content, .medios-contacto {
+            .mision-vision {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .mision, .vision {
+                margin: 10px 0;
+            }
+
+            .mision img, .vision img {
+                max-width: 100%;
+            }
+
+            .medios-contacto {
                 padding: 15px;
             }
 
-            .content h2, .medios-contacto h2 {
+            .medios-contacto h2 {
                 font-size: 1.3rem;
             }
 
-            .content p, .medios-contacto p {
+            .medios-contacto p {
                 font-size: 0.9rem;
             }
 
@@ -196,9 +247,9 @@
     </style>
 </head>
 <body>
-    <!-- Barra de navegación (se mantiene igual) -->
+    <!-- Barra de navegación -->
     <div class="navbar">
-        <img src="ESPI.png" alt="Logo ESPI" class="logo">
+        <img src="ESPI.png" alt="Logo ESPI" class="logo" onclick="window.location.href='index.html'">
         <div class="nav-links">
             <a href="index.html">Inicio</a>
             <a href="sobre-nosotros.html">Sobre Nosotros</a>
@@ -207,28 +258,34 @@
         </div>
     </div>
 
-    <!-- Hero section (se mantiene igual) -->
+    <!-- Hero section con animación -->
     <div class="hero">
         <img src="ESPI.png" alt="Logo ESPI">
         <h1>Sobre Nosotros</h1>
     </div>
 
-    <!-- Contenido de la página (se mantiene igual) -->
-    <div class="content">
-        <h2>Nuestra Misión</h2>
-        <p>
-            En el Centro de Estudios Profesionales y de Investigación ESPI, nos dedicamos a ofrecer una educación de calidad
-            que prepare a nuestros estudiantes para los desafíos del mundo actual. Nuestro enfoque innovador y nuestra
-            comunidad global nos distinguen como líderes en la formación profesional.
-        </p>
-        <h2>Nuestra Visión</h2>
-        <p>
-            Ser reconocidos como una institución líder en la formación de profesionales altamente capacitados, comprometidos
-            con el desarrollo sostenible y la innovación en sus áreas de expertise.
-        </p>
+    <!-- Sección de Misión y Visión -->
+    <div class="mision-vision">
+        <div class="mision">
+            <h2>Nuestra Misión</h2>
+            <p>
+                En el Centro de Estudios Profesionales y de Investigación ESPI, nos dedicamos a ofrecer una educación de calidad
+                que prepare a nuestros estudiantes para los desafíos del mundo actual. Nuestro enfoque innovador y nuestra
+                comunidad global nos distinguen como líderes en la formación profesional.
+            </p>
+            <img src="misionfoto.jpg" alt="Misión ESPI">
+        </div>
+        <div class="vision">
+            <h2>Nuestra Visión</h2>
+            <p>
+                Ser reconocidos como una institución líder en la formación de profesionales altamente capacitados, comprometidos
+                con el desarrollo sostenible y la innovación en sus áreas de expertise.
+            </p>
+            <img src="visionfoto.jpg" alt="Visión ESPI">
+        </div>
     </div>
 
-    <!-- Medios de contacto (modificado) -->
+    <!-- Medios de contacto -->
     <div class="medios-contacto">
         <h2>Medios de Contacto</h2>
         <div class="redes-sociales">
@@ -245,7 +302,7 @@
         </div>
     </div>
 
-    <!-- Botón flotante de WhatsApp (se mantiene igual) -->
+    <!-- Botón flotante de WhatsApp -->
     <a href="https://wa.me/5211234567890" target="_blank" class="whatsapp-float">
         <img src="whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon">
         <span>CONTÁCTANOS</span>
