@@ -146,21 +146,26 @@
         }
 
         /* Recuadros más pequeños */
+        .recuadros-container {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+
         .recuadros {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
             gap: 20px;
             padding: 20px;
+            transition: transform 0.5s ease-in-out;
         }
 
         .recuadro {
             background: rgba(255, 255, 255, 0.2);
-            padding: 15px; /* Menos padding */
+            padding: 15px;
             border-radius: 10px;
             text-align: center;
-            width: 100%;
-            max-width: 250px; /* Ancho máximo reducido */
+            width: 250px;
+            flex: 0 0 auto;
             transition: transform 0.3s;
         }
 
@@ -169,7 +174,7 @@
         }
 
         .recuadro img {
-            width: 80px; /* Imágenes más pequeñas */
+            width: 80px;
             height: 80px;
             object-fit: cover;
             border-radius: 50%;
@@ -179,6 +184,27 @@
 
         .recuadro img:hover {
             transform: scale(1.1);
+        }
+
+        /* Botones de navegación del carrusel */
+        .carrusel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .carrusel-btn.prev {
+            left: 10px;
+        }
+
+        .carrusel-btn.next {
+            right: 10px;
         }
 
         /* Botón flotante de WhatsApp */
@@ -200,7 +226,7 @@
         }
 
         .whatsapp-icon {
-            width: 30px; /* Tamaño reducido */
+            width: 30px;
             height: 30px;
             margin-right: 10px;
         }
@@ -238,21 +264,20 @@
 
             .recuadros {
                 display: flex;
-                overflow-x: auto; /* Permite el desplazamiento horizontal */
-                scroll-snap-type: x mandatory; /* Desplazamiento suave */
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
                 gap: 10px;
                 padding: 10px;
             }
 
             .recuadro {
-                flex: 0 0 auto; /* Evita que los recuadros se estiren */
-                scroll-snap-align: start; /* Alinea los recuadros al inicio */
-                width: 80%; /* Ancho más grande para móvil */
-                max-width: none; /* Elimina el ancho máximo */
+                scroll-snap-align: start;
+                width: 80%;
+                max-width: none;
             }
 
             .recuadro img {
-                width: 60px; /* Imágenes más pequeñas en móvil */
+                width: 60px;
                 height: 60px;
             }
 
@@ -304,15 +329,19 @@
     <h2 class="titulo-recuadros">¿Por qué formar parte de ESPI?</h2>
 
     <!-- Recuadros -->
-    <div class="recuadros">
-        <div class="recuadro"><img src="digitales.jpg" alt="Nativos Digitales"><p>Porque somos nativos digitales: estudia sin pisar un salón de clases</p></div>
-        <div class="recuadro"><img src="titulo.jpg" alt="Graduación"><p>Gradúate con título profesional</p></div>
-        <div class="recuadro"><img src="empleo.jpg" alt="Empleo"><p>Demuestra tu conocimiento en tu siguiente oportunidad laboral.</p></div>
-        <div class="recuadro"><img src="global.jpg" alt="Comunidad"><p>Comunidad Global: Enriquece tu educación con personas de todo el mundo.</p></div>
-        <div class="recuadro"><img src="campus.jpg" alt="Campus Virtual"><p>Campus virtual 24/7: Crea tu propio horario con las clases, materiales y apoyo disponibles.</p></div>
-        <div class="recuadro"><img src="calidad.jpg" alt="Calidad"><p>Calidad en acción: Suma credenciales a tu perfil de nuestras alianzas con reconocidas instituciones.</p></div>
-        <div class="recuadro"><img src="tutor.jpg" alt="Tutores"><p>Estudia acompañado: Guía y apoyo de tutores expertos en cada etapa de tu formación.</p></div>
-        <div class="recuadro"><img src="inversion.jpg" alt="Inversión"><p>Invierte en ti mismo</p></div>
+    <div class="recuadros-container">
+        <div class="recuadros">
+            <div class="recuadro"><img src="digitales.jpg" alt="Nativos Digitales"><p>Porque somos nativos digitales: estudia sin pisar un salón de clases</p></div>
+            <div class="recuadro"><img src="titulo.jpg" alt="Graduación"><p>Gradúate con título profesional</p></div>
+            <div class="recuadro"><img src="empleo.jpg" alt="Empleo"><p>Demuestra tu conocimiento en tu siguiente oportunidad laboral.</p></div>
+            <div class="recuadro"><img src="global.jpg" alt="Comunidad"><p>Comunidad Global: Enriquece tu educación con personas de todo el mundo.</p></div>
+            <div class="recuadro"><img src="campus.jpg" alt="Campus Virtual"><p>Campus virtual 24/7: Crea tu propio horario con las clases, materiales y apoyo disponibles.</p></div>
+            <div class="recuadro"><img src="calidad.jpg" alt="Calidad"><p>Calidad en acción: Suma credenciales a tu perfil de nuestras alianzas con reconocidas instituciones.</p></div>
+            <div class="recuadro"><img src="tutor.jpg" alt="Tutores"><p>Estudia acompañado: Guía y apoyo de tutores expertos en cada etapa de tu formación.</p></div>
+            <div class="recuadro"><img src="inversion.jpg" alt="Inversión"><p>Invierte en ti mismo</p></div>
+        </div>
+        <button class="carrusel-btn prev" onclick="moveRecuadros(-1)">&#10094;</button>
+        <button class="carrusel-btn next" onclick="moveRecuadros(1)">&#10095;</button>
     </div>
 
     <!-- Botón flotante de WhatsApp -->
@@ -322,33 +351,6 @@
     </a>
 
     <script>
-        // Desplazamiento suave para el carrusel en móvil
-        const recuadrosContainer = document.querySelector('.recuadros');
-        let isDragging = false;
-        let startX, scrollLeft;
-
-        recuadrosContainer.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            startX = e.pageX - recuadrosContainer.offsetLeft;
-            scrollLeft = recuadrosContainer.scrollLeft;
-        });
-
-        recuadrosContainer.addEventListener('mouseleave', () => {
-            isDragging = false;
-        });
-
-        recuadrosContainer.addEventListener('mouseup', () => {
-            isDragging = false;
-        });
-
-        recuadrosContainer.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            e.preventDefault();
-            const x = e.pageX - recuadrosContainer.offsetLeft;
-            const walk = (x - startX) * 2; // Velocidad de desplazamiento
-            recuadrosContainer.scrollLeft = scrollLeft - walk;
-        });
-
         // Carrusel de imágenes
         let slideIndex = 0;
         const slides = document.querySelectorAll('.carrusel img');
@@ -372,6 +374,17 @@
         }
 
         setInterval(autoSlide, 3000); // Cambia la imagen cada 3 segundos
+
+        // Carrusel de recuadros
+        const recuadrosContainer = document.querySelector('.recuadros');
+        const recuadroWidth = document.querySelector('.recuadro').offsetWidth + 20; // Ancho del recuadro + gap
+        let currentRecuadroIndex = 0;
+
+        function moveRecuadros(n) {
+            const totalRecuadros = document.querySelectorAll('.recuadro').length;
+            currentRecuadroIndex = (currentRecuadroIndex + n + totalRecuadros) % totalRecuadros;
+            recuadrosContainer.style.transform = `translateX(-${currentRecuadroIndex * recuadroWidth}px)`;
+        }
     </script>
 </body>
 </html>
