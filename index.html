@@ -14,29 +14,33 @@
             color: white;
         }
 
+        /* Barra de navegación más grande */
         .navbar {
             width: 100%;
             background: rgba(0, 0, 0, 0.8);
-            padding: 10px;
+            padding: 15px 20px; /* Más padding para mayor altura */
             position: fixed;
             top: 0;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             z-index: 1000;
         }
 
+        .navbar .logo {
+            height: 40px; /* Logo más grande */
+            cursor: pointer; /* Cambia el cursor al pasar sobre el logo */
+        }
+
         .nav-links {
             display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            justify-content: center;
+            gap: 20px; /* Más espacio entre enlaces */
         }
 
         .navbar a {
             color: white;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 18px; /* Texto más grande */
             transition: color 0.3s;
         }
 
@@ -44,20 +48,20 @@
             color: #00bfff;
         }
 
-        /* Hero section centrada */
+        /* Hero section */
         .hero {
             text-align: center;
-            padding: 100px 20px 50px;
+            padding: 120px 20px 50px; /* Más padding para mayor espacio */
             background: rgba(0, 0, 0, 0.5);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin-top: 60px;
+            margin-top: 80px; /* Ajuste para la barra más grande */
         }
 
         .hero img {
-            height: 80px;
+            height: 80px; /* Logo más grande */
             margin-bottom: 20px;
         }
 
@@ -65,18 +69,12 @@
             font-size: 2.5rem;
             font-weight: bold;
             text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
-            animation: fadeInZoom 1.5s ease-in-out;
             margin: 0;
         }
 
-        @keyframes fadeInZoom {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        /* Carrusel ajustado para escritorio */
+        /* Resto del CSS (carrusel, recuadros, botón de WhatsApp, etc.) */
         .carrusel {
-            max-width: 60%; /* Reducimos el ancho en escritorio */
+            max-width: 60%;
             margin: 20px auto;
             position: relative;
             overflow: hidden;
@@ -120,7 +118,6 @@
             opacity: 1;
         }
 
-        /* Recuadros */
         .recuadros {
             display: flex;
             flex-wrap: wrap;
@@ -146,7 +143,6 @@
             margin-bottom: 10px;
         }
 
-        /* Botón flotante de WhatsApp */
         .whatsapp-float {
             position: fixed;
             bottom: 20px;
@@ -181,11 +177,11 @@
             }
 
             .navbar a {
-                font-size: 14px;
+                font-size: 16px;
             }
 
             .carrusel {
-                max-width: 90%; /* El carrusel ocupa más ancho en móviles */
+                max-width: 90%;
             }
 
             .recuadros {
@@ -213,17 +209,18 @@
     </style>
 </head>
 <body>
-    <!-- Barra de navegación -->
+    <!-- Barra de navegación más grande -->
     <div class="navbar">
+        <img src="ESPI.png" alt="Logo ESPI" class="logo" onclick="window.location.href='index.html'">
         <div class="nav-links">
-            <a href="#">Inicio</a>
+            <a href="index.html">Inicio</a>
             <a href="sobre-nosotros.html">Sobre Nosotros</a>
             <a href="#contact">Contacto</a>
             <a href="#" onclick="alert('La plataforma estudiantil estará disponible próximamente.')">Plataforma Estudiantil</a>
         </div>
     </div>
 
-    <!-- Hero section centrada -->
+    <!-- Hero section -->
     <div class="hero">
         <img src="ESPI.png" alt="Logo ESPI">
         <h1>Bienvenidos a ESPI</h1>
