@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros - ESPI</title>
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('imagen.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        .navbar {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #00bfff;
+        }
+
+        /* Hero section */
+        .hero {
+            text-align: left;
+            padding: 100px 20px 50px;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: 60px;
+        }
+
+        .hero img {
+            height: 80px;
+            margin-right: 20px;
+            margin-bottom: 0;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+            margin: 0;
+        }
+
+        /* Contenido de la página */
+        .content {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            max-width: 800px;
+            margin: 20px auto;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Botón flotante de WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #25d366;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+        }
+
+        .whatsapp-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Media Queries para móviles */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .navbar a {
+                font-size: 14px;
+            }
+
+            .content {
+                padding: 15px;
+            }
+
+            .content h2 {
+                font-size: 1.8rem;
+            }
+
+            .content p {
+                font-size: 1rem;
+            }
+
+            .whatsapp-float {
+                bottom: 10px;
+                right: 10px;
+                padding: 8px;
+                font-size: 12px;
+            }
+
+            .whatsapp-icon {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <div class="navbar">
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="sobre-nosotros.html">Sobre Nosotros</a>
+            <a href="#contact">Contacto</a>
+            <a href="#" onclick="alert('La plataforma estudiantil estará disponible próximamente.')">Plataforma Estudiantil</a>
+        </div>
+    </div>
+
+    <!-- Hero section con logo y título -->
+    <div class="hero">
+        <img src="ESPI.png" alt="Logo ESPI">
+        <h1>Sobre Nosotros</h1>
+    </div>
+
+    <!-- Contenido de la página -->
+    <div class="content">
+        <h2>Nuestra Misión</h2>
+        <p>
+            En el Centro de Estudios Profesionales y de Investigación ESPI, nos dedicamos a ofrecer una educación de calidad
+            que prepare a nuestros estudiantes para los desafíos del mundo actual. Nuestro enfoque innovador y nuestra
+            comunidad global nos distinguen como líderes en la formación profesional.
+        </p>
+        <h2>Nuestra Visión</h2>
+        <p>
+            Ser reconocidos como una institución líder en la formación de profesionales altamente capacitados, comprometidos
+            con el desarrollo sostenible y la innovación en sus áreas de expertise.
+        </p>
+    </div>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/5211234567890" target="_blank" class="whatsapp-float">
+        <img src="whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon">
+        <span>CONTÁCTANOS</span>
+    </a>
+</body>
+</html>
