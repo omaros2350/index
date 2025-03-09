@@ -207,6 +207,50 @@
             right: 10px;
         }
 
+        /* Sección de Contáctanos */
+        .contacto {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            max-width: 800px;
+            margin: 20px auto;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .contacto h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #00bfff;
+        }
+
+        .contacto .redes-sociales {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .contacto .redes-sociales a {
+            text-decoration: none;
+            color: white;
+            transition: transform 0.3s;
+        }
+
+        .contacto .redes-sociales a:hover {
+            transform: scale(1.1);
+        }
+
+        .contacto .redes-sociales img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .contacto .info-contacto p {
+            font-size: 0.9rem;
+            margin: 5px 0;
+            color: #ccc;
+        }
+
         /* Botón flotante de WhatsApp */
         .whatsapp-float {
             position: fixed;
@@ -285,6 +329,18 @@
                 height: 60px;
             }
 
+            .contacto {
+                padding: 15px;
+            }
+
+            .contacto h2 {
+                font-size: 1.3rem;
+            }
+
+            .contacto p {
+                font-size: 0.9rem;
+            }
+
             .whatsapp-float {
                 bottom: 10px;
                 right: 10px;
@@ -334,6 +390,7 @@
 
     <!-- Recuadros -->
     <div class="recuadros-container">
+        <button class="carrusel-btn prev" onclick="moveRecuadros(-1)">&#10094;</button>
         <div class="recuadros">
             <div class="recuadro"><img src="digitales.jpg" alt="Nativos Digitales"><p>Porque somos nativos digitales: estudia sin pisar un salón de clases</p></div>
             <div class="recuadro"><img src="titulo.jpg" alt="Graduación"><p>Gradúate con título profesional</p></div>
@@ -343,6 +400,24 @@
             <div class="recuadro"><img src="calidad.jpg" alt="Calidad"><p>Calidad en acción: Suma credenciales a tu perfil de nuestras alianzas con reconocidas instituciones.</p></div>
             <div class="recuadro"><img src="tutor.jpg" alt="Tutores"><p>Estudia acompañado: Guía y apoyo de tutores expertos en cada etapa de tu formación.</p></div>
             <div class="recuadro"><img src="inversion.jpg" alt="Inversión"><p>Invierte en ti mismo</p></div>
+        </div>
+        <button class="carrusel-btn next" onclick="moveRecuadros(1)">&#10095;</button>
+    </div>
+
+    <!-- Sección de Contáctanos -->
+    <div class="contacto" id="contact">
+        <h2>Contáctanos</h2>
+        <div class="redes-sociales">
+            <a href="https://www.instagram.com/tuinstagram" target="_blank">
+                <img src="instagram-icon.png" alt="Instagram">
+            </a>
+            <a href="https://www.facebook.com/tufacebook" target="_blank">
+                <img src="facebook-icon.png" alt="Facebook">
+            </a>
+        </div>
+        <div class="info-contacto">
+            <p>Correo electrónico: contacto@espi.edu.mx</p>
+            <p>Dirección: Av. Ficticia #123, Ciudad Ficticia, México</p>
         </div>
     </div>
 
@@ -376,6 +451,20 @@
         }
 
         setInterval(autoSlide, 3000); // Cambia la imagen cada 3 segundos
+
+        // Carrusel de recuadros
+        const recuadrosContainer = document.querySelector('.recuadros');
+        const recuadroWidth = document.querySelector('.recuadro').offsetWidth + 20; // Ancho del recuadro + gap
+        let currentRecuadroIndex = 0;
+
+        function moveRecuadros(n) {
+            const totalRecuadros = document.querySelectorAll('.recuadro').length;
+            currentRecuadroIndex = (currentRecuadroIndex + n + totalRecuadros) % totalRecuadros;
+            recuadrosContainer.style.transform = `translateX(-${currentRecuadroIndex * recuadroWidth}px)`;
+        }
+
+        // Desplazamiento automático de recuadros cada 2 segundos
+        setInterval(() => moveRecuadros(1), 2000);
     </script>
 </body>
 </html>
