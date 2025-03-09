@@ -18,7 +18,7 @@
         .navbar {
             width: 100%;
             background: rgba(0, 0, 0, 0.8);
-            padding: 15px 20px; /* Más padding para mayor altura */
+            padding: 15px 20px;
             position: fixed;
             top: 0;
             display: flex;
@@ -28,19 +28,19 @@
         }
 
         .navbar .logo {
-            height: 40px; /* Logo más grande */
-            cursor: pointer; /* Cambia el cursor al pasar sobre el logo */
+            height: 40px;
+            cursor: pointer;
         }
 
         .nav-links {
             display: flex;
-            gap: 20px; /* Más espacio entre enlaces */
+            gap: 20px;
         }
 
         .navbar a {
             color: white;
             text-decoration: none;
-            font-size: 18px; /* Texto más grande */
+            font-size: 18px;
             transition: color 0.3s;
         }
 
@@ -51,18 +51,19 @@
         /* Hero section */
         .hero {
             text-align: center;
-            padding: 120px 20px 50px; /* Más padding para mayor espacio */
+            padding: 120px 20px 50px;
             background: rgba(0, 0, 0, 0.5);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin-top: 80px; /* Ajuste para la barra más grande */
+            margin-top: 80px;
         }
 
         .hero img {
-            height: 80px; /* Logo más grande */
+            height: 80px;
             margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         .hero h1 {
@@ -70,9 +71,20 @@
             font-weight: bold;
             text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
             margin: 0;
+            animation: fadeInZoom 1.5s ease-in-out;
         }
 
-        /* Resto del CSS (carrusel, recuadros, botón de WhatsApp, etc.) */
+        @keyframes fadeInZoom {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Carrusel con animación fadeIn */
         .carrusel {
             max-width: 60%;
             margin: 20px auto;
@@ -85,6 +97,7 @@
             width: 100%;
             display: none;
             transition: opacity 1s ease-in-out;
+            animation: fadeIn 1s ease-in-out;
         }
 
         .carrusel img.active {
@@ -118,6 +131,16 @@
             opacity: 1;
         }
 
+        /* Título antes de los recuadros */
+        .titulo-recuadros {
+            text-align: center;
+            font-size: 2rem;
+            color: #00bfff; /* Azul fuerte */
+            margin: 40px 0 20px;
+            font-weight: bold;
+        }
+
+        /* Recuadros con imágenes más grandes y efecto hover */
         .recuadros {
             display: flex;
             flex-wrap: wrap;
@@ -133,16 +156,27 @@
             text-align: center;
             width: 100%;
             max-width: 300px;
+            transition: transform 0.3s;
+        }
+
+        .recuadro:hover {
+            transform: scale(1.05); /* Efecto de agrandamiento */
         }
 
         .recuadro img {
-            width: 80px;
-            height: 80px;
+            width: 120px; /* Imágenes más grandes */
+            height: 120px;
             object-fit: cover;
             border-radius: 50%;
             margin-bottom: 10px;
+            transition: transform 0.3s;
         }
 
+        .recuadro img:hover {
+            transform: scale(1.1); /* Efecto de agrandamiento al pasar el mouse */
+        }
+
+        /* Botón flotante de WhatsApp */
         .whatsapp-float {
             position: fixed;
             bottom: 20px;
@@ -184,6 +218,10 @@
                 max-width: 90%;
             }
 
+            .titulo-recuadros {
+                font-size: 1.8rem;
+            }
+
             .recuadros {
                 flex-direction: column;
                 align-items: center;
@@ -192,6 +230,11 @@
             .recuadro {
                 width: 90%;
                 max-width: none;
+            }
+
+            .recuadro img {
+                width: 100px;
+                height: 100px;
             }
 
             .whatsapp-float {
@@ -238,6 +281,9 @@
         </div>
     </div>
 
+    <!-- Título antes de los recuadros -->
+    <h2 class="titulo-recuadros">¿Por qué formar parte de ESPI?</h2>
+
     <!-- Recuadros -->
     <div class="recuadros">
         <div class="recuadro"><img src="digitales.jpg" alt="Nativos Digitales"><p>Porque somos nativos digitales: estudia sin pisar un salón de clases</p></div>
@@ -278,7 +324,7 @@
             showSlide(slideIndex);
         }
 
-        setInterval(autoSlide, 2000); // Cambia la imagen cada 2 segundos
+        setInterval(autoSlide, 3000); // Cambia la imagen cada 3 segundos
     </script>
 </body>
 </html>
