@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Centro de Estudios Profesionales y de Investigación ESPI. S.C.</title>
     <style>
+        /* Estilos generales */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -43,20 +44,22 @@
             color: #00bfff;
         }
 
+        /* Hero section modificada */
         .hero {
-            text-align: center;
+            text-align: left; /* Alinea el contenido a la izquierda */
             padding: 100px 20px 50px;
             background: rgba(0, 0, 0, 0.5);
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            flex-direction: row; /* Cambia a fila para alinear logo y texto */
+            align-items: center; /* Centra verticalmente */
+            justify-content: flex-start; /* Alinea a la izquierda */
             margin-top: 60px;
         }
 
         .hero img {
             height: 80px;
-            margin-bottom: 20px;
+            margin-right: 20px; /* Espacio entre el logo y el texto */
+            margin-bottom: 0; /* Elimina el margen inferior */
         }
 
         .hero h1 {
@@ -64,7 +67,7 @@
             font-weight: bold;
             text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
             animation: fadeInZoom 1.5s ease-in-out;
-            margin: 0;
+            margin: 0; /* Elimina el margen predeterminado */
         }
 
         @keyframes fadeInZoom {
@@ -72,6 +75,7 @@
             to { opacity: 1; transform: scale(1); }
         }
 
+        /* Resto del CSS (carrusel, recuadros, botón de WhatsApp, etc.) */
         .carrusel {
             max-width: 90%;
             margin: 20px auto;
@@ -213,6 +217,7 @@
         </div>
     </div>
 
+    <!-- Hero section modificada -->
     <div class="hero">
         <img src="ESPI.png" alt="Logo ESPI">
         <h1>Bienvenidos a ESPI</h1>
@@ -268,7 +273,7 @@
             showSlide(slideIndex);
         }
 
-        setInterval(autoSlide, 2000); // Cambia la imagen cada 2 segundos
+        setInterval(autoSlide, 3000); // Cambia la imagen cada 2 segundos
     </script>
 </body>
 </html>
