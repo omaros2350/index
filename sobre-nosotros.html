@@ -9,7 +9,7 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: url('imagen.jpg') no-repeat center center fixed;
+            background: #000 url('imagen.jpg') no-repeat center center fixed;
             background-size: cover;
             color: white;
         }
@@ -30,13 +30,14 @@
         .navbar .logo {
             height: 40px;
             cursor: pointer;
+            flex-shrink: 0; /* Evita que el logo se encoja */
         }
 
         .nav-links {
             display: flex;
             gap: 15px;
             margin: 0 auto;
-            flex-wrap: wrap;
+            flex-wrap: nowrap; /* Evita que los enlaces se envuelvan */
             justify-content: center;
         }
 
@@ -45,7 +46,8 @@
             text-decoration: none;
             font-size: 16px;
             transition: color 0.3s;
-            white-space: nowrap;
+            white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+            flex-shrink: 0; /* Evita que los enlaces se encojan */
         }
 
         .navbar a:hover {
@@ -210,7 +212,7 @@
             }
 
             .navbar a {
-                font-size: 14px;
+                font-size: 14px; /* Tamaño de fuente más pequeño en móviles */
             }
 
             .mision-vision {
