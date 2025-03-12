@@ -78,6 +78,63 @@
             animation: fadeIn 1.5s ease-in-out;
         }
 
+        /* Carrusel de Pedagogía */
+        .carrusel {
+            max-width: 60%;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .carrusel img {
+            width: 100%;
+            display: none;
+            transition: opacity 1s ease-in-out;
+            animation: fadeIn 1s ease-in-out;
+            cursor: pointer;
+        }
+
+        .carrusel img.active {
+            display: block;
+        }
+
+        .carrusel-btns {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 10px;
+        }
+
+        .btn-carrusel {
+            background-color: rgba(0, 0, 0, 0.4);
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+            font-size: 18px;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .btn-carrusel:hover {
+            opacity: 1;
+        }
+
+        /* Título antes de los recuadros */
+        .titulo-recuadros {
+            text-align: center;
+            font-size: 2rem;
+            color: white;
+            margin: 40px 0 20px;
+            font-weight: bold;
+        }
+
         /* Carrusel de recuadros */
         .recuadros-container {
             overflow: hidden;
@@ -136,6 +193,7 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
             .navbar a { font-size: 14px; }
+            .carrusel { max-width: 90%; }
             .recuadro { width: 250px; } /* Ajuste para móviles */
             .recuadro img { width: 80px; height: 80px; } /* Ajuste para móviles */
         }
@@ -159,6 +217,19 @@
         <h1>Bienvenidos a ESPI</h1>
     </div>
 
+    <!-- Carrusel de Pedagogía -->
+    <div class="carrusel">
+        <img src="pedagogia1.jpg" class="active" alt="Pedagogía 1">
+        <img src="pedagogia2.jpg" alt="Pedagogía 2">
+        <img src="pedagogia3.jpg" alt="Pedagogía 3">
+        <img src="pedagogia4.jpg" alt="Pedagogía 4">
+        <img src="pedagogia5.jpg" alt="Pedagogía 5">
+        <div class="carrusel-btns">
+            <button class="btn-carrusel" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="btn-carrusel" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+    </div>
+
     <!-- Título antes de los recuadros -->
     <h2 class="titulo-recuadros">¿Por qué formar parte de ESPI?</h2>
 
@@ -176,7 +247,7 @@
         </div>
     </div>
 
-    <!-- Script para el carrusel automático -->
+    <!-- Script para el carrusel de recuadros automático -->
     <script>
         const recuadrosContainer = document.querySelector('.recuadros');
         const recuadros = document.querySelectorAll('.recuadro');
