@@ -35,9 +35,9 @@
 
         .nav-links {
             display: flex;
-            gap: 15px;
+            gap: 10px; /* Espacio entre enlaces */
             margin: 0 auto;
-            flex-wrap: nowrap; /* Evita que los enlaces se envuelvan */
+            flex-wrap: wrap; /* Permite que los enlaces se envuelvan en móviles */
             justify-content: center;
         }
 
@@ -213,6 +213,10 @@
 
             .navbar a {
                 font-size: 14px; /* Tamaño de fuente más pequeño en móviles */
+            }
+
+            .nav-links {
+                gap: 5px; /* Reducir el espacio entre enlaces */
             }
 
             .mision-vision {
