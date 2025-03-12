@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Centro de Estudios Profesionales y de Investigación ESPI. S.C. - Formación en Pedagogía, Maestría y Doctorado en Ciencias de la Educación.">
+    <meta name="keywords" content="ESPI, pedagogía, maestría, doctorado, educación, certificaciones">
+    <meta name="author" content="ESPI">
     <title>Centro de Estudios Profesionales y de Investigación ESPI. S.C.</title>
     <style>
-        /* Estilos generales */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -13,8 +15,6 @@
             background-size: cover;
             color: white;
         }
-
-        /* Barra de navegación */
         .navbar {
             width: 100%;
             background: rgba(0, 0, 0, 0.8);
@@ -26,12 +26,10 @@
             align-items: center;
             z-index: 1000;
         }
-
         .navbar .logo {
             height: 40px;
             cursor: pointer;
         }
-
         .nav-links {
             display: flex;
             gap: 15px;
@@ -39,7 +37,6 @@
             flex-wrap: wrap;
             justify-content: center;
         }
-
         .navbar a {
             color: white;
             text-decoration: none;
@@ -47,12 +44,9 @@
             transition: color 0.3s;
             white-space: nowrap;
         }
-
         .navbar a:hover {
             color: #00bfff;
         }
-
-        /* Hero section */
         .hero {
             text-align: center;
             padding: 120px 20px 50px;
@@ -63,13 +57,11 @@
             justify-content: center;
             margin-top: 80px;
         }
-
         .hero img {
             height: 80px;
             margin-bottom: 20px;
             animation: fadeIn 1.5s ease-in-out, pulse 2s infinite;
         }
-
         .hero h1 {
             font-size: 2.5rem;
             font-weight: bold;
@@ -77,8 +69,6 @@
             margin: 0;
             animation: fadeIn 1.5s ease-in-out;
         }
-
-        /* Carrusel de Pedagogía */
         .carrusel {
             max-width: 60%;
             margin: 20px auto;
@@ -86,19 +76,17 @@
             overflow: hidden;
             border-radius: 10px;
         }
-
         .carrusel img {
             width: 100%;
-            display: none;
+            opacity: 0;
             transition: opacity 1s ease-in-out;
-            animation: fadeIn 1s ease-in-out;
-            cursor: pointer;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
-
         .carrusel img.active {
-            display: block;
+            opacity: 1;
         }
-
         .carrusel-btns {
             position: absolute;
             top: 50%;
@@ -109,7 +97,6 @@
             transform: translateY(-50%);
             padding: 0 10px;
         }
-
         .btn-carrusel {
             background-color: rgba(0, 0, 0, 0.4);
             color: white;
@@ -121,12 +108,9 @@
             opacity: 0.7;
             transition: opacity 0.3s;
         }
-
         .btn-carrusel:hover {
             opacity: 1;
         }
-
-        /* Título antes de los recuadros */
         .titulo-recuadros {
             text-align: center;
             font-size: 2rem;
@@ -134,79 +118,242 @@
             margin: 40px 0 20px;
             font-weight: bold;
         }
-
-        /* Carrusel de recuadros */
         .recuadros-container {
             overflow: hidden;
             width: 100%;
             position: relative;
-            margin: 40px 0;
+            scroll-snap-type: x mandatory;
         }
-
         .recuadros {
             display: flex;
             gap: 20px;
             padding: 20px;
             transition: transform 0.5s ease-in-out;
         }
-
         .recuadro {
             background: rgba(255, 255, 255, 0.2);
-            padding: 20px;
+            padding: 15px;
             border-radius: 10px;
             text-align: center;
-            width: 350px; /* Aumentamos el ancho para laptops */
+            width: 250px;
             flex: 0 0 auto;
             transition: transform 0.3s;
+            scroll-snap-align: start;
         }
-
         .recuadro:hover {
             transform: scale(1.05);
         }
-
         .recuadro img {
-            width: 120px; /* Imágenes más grandes */
-            height: 120px;
+            width: 80px;
+            height: 80px;
             object-fit: cover;
             border-radius: 50%;
             margin-bottom: 10px;
             transition: transform 0.3s;
         }
-
         .recuadro img:hover {
             transform: scale(1.1);
         }
-
-        /* Animaciones */
+        .carrusel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .carrusel-btn.prev {
+            left: 10px;
+        }
+        .carrusel-btn.next {
+            right: 10px;
+        }
+        .oferta-academica {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            max-width: 1200px;
+            margin: 20px auto;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .oferta-academica h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        .programas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .programa {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            text-align: left;
+            transition: transform 0.3s;
+        }
+        .programa:hover {
+            transform: scale(1.05);
+        }
+        .programa img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .programa h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+        .programa p {
+            font-size: 0.9rem;
+            margin: 5px 0;
+            color: #ccc;
+        }
+        .contacto {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            max-width: 800px;
+            margin: 20px auto;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .contacto h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+        .contacto .redes-sociales {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .contacto .redes-sociales a {
+            text-decoration: none;
+            color: white;
+            transition: transform 0.3s;
+        }
+        .contacto .redes-sociales a:hover {
+            transform: scale(1.1);
+        }
+        .contacto .redes-sociales img {
+            width: 24px;
+            height: 24px;
+        }
+        .contacto .info-contacto p {
+            font-size: 0.9rem;
+            margin: 5px 0;
+            color: #ccc;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-size: 14px;
+            z-index: 1000;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+        }
+        .whatsapp-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+        /* Modal para imágenes */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 10px;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #00bfff;
+        }
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 24px;
+        }
+        .modal-nav.prev {
+            left: 20px;
+        }
+        .modal-nav.next {
+            right: 20px;
+        }
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.1); }
             100% { transform: scale(1); }
         }
-
-        /* Media Queries para móviles */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
+            .hero h1 { font-size: 1.8rem; }
             .navbar a { font-size: 14px; }
             .carrusel { max-width: 90%; }
-            .recuadro { width: 250px; } /* Ajuste para móviles */
-            .recuadro img { width: 80px; height: 80px; } /* Ajuste para móviles */
-        }
-
-        /* Media Queries para laptops */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .recuadro {
-                width: 300px; /* Ajuste para laptops */
-            }
-            .recuadro img {
-                width: 100px; /* Ajuste para laptops */
-                height: 100px;
-            }
+            .titulo-recuadros { font-size: 1.8rem; }
+            .recuadros-container { overflow-x: auto; }
+            .recuadros { gap: 10px; padding: 10px; }
+            .recuadro { width: 80%; max-width: none; }
+            .recuadro img { width: 60px; height: 60px; }
+            .oferta-academica { padding: 15px; }
+            .oferta-academica h2 { font-size: 1.5rem; }
+            .programa { flex-direction: column; text-align: center; }
+            .programa img { width: 100px; height: 100px; }
+            .contacto { padding: 15px; }
+            .contacto h2 { font-size: 1.3rem; }
+            .contacto p { font-size: 0.9rem; }
+            .whatsapp-float { bottom: 10px; right: 10px; padding: 8px 16px; font-size: 12px; }
+            .whatsapp-icon { width: 20px; height: 20px; }
         }
     </style>
 </head>
@@ -217,7 +364,7 @@
         <div class="nav-links">
             <a href="index.html">Inicio</a>
             <a href="sobre-nosotros.html">Sobre Nosotros</a>
-            <a href="contacto.html">Contacto</a>
+            <a href="#contact">Contacto</a>
             <a href="#" onclick="alert('La plataforma estudiantil estará disponible próximamente.')">Plataforma Estudiantil</a>
         </div>
     </div>
@@ -236,16 +383,17 @@
         <img src="pedagogia4.jpg" alt="Pedagogía 4">
         <img src="pedagogia5.jpg" alt="Pedagogía 5">
         <div class="carrusel-btns">
-            <button class="btn-carrusel" onclick="moveSlide(-1)">&#10094;</button>
-            <button class="btn-carrusel" onclick="moveSlide(1)">&#10095;</button>
+            <button class="btn-carrusel" onclick="moveSlide(-1)" aria-label="Anterior">&#10094;</button>
+            <button class="btn-carrusel" onclick="moveSlide(1)" aria-label="Siguiente">&#10095;</button>
         </div>
     </div>
 
     <!-- Título antes de los recuadros -->
     <h2 class="titulo-recuadros">¿Por qué formar parte de ESPI?</h2>
 
-    <!-- Carrusel de recuadros -->
+    <!-- Recuadros -->
     <div class="recuadros-container">
+        <button class="carrusel-btn prev" onclick="moveRecuadros(-1)" aria-label="Anterior">&#10094;</button>
         <div class="recuadros">
             <div class="recuadro"><img src="digitales.jpg" alt="Nativos Digitales"><p>Porque somos nativos digitales: estudia sin pisar un salón de clases</p></div>
             <div class="recuadro"><img src="titulo.jpg" alt="Graduación"><p>Gradúate con título profesional</p></div>
@@ -256,34 +404,149 @@
             <div class="recuadro"><img src="tutor.jpg" alt="Tutores"><p>Estudia acompañado: Guía y apoyo de tutores expertos en cada etapa de tu formación.</p></div>
             <div class="recuadro"><img src="inversion.jpg" alt="Inversión"><p>Invierte en ti mismo</p></div>
         </div>
+        <button class="carrusel-btn next" onclick="moveRecuadros(1)" aria-label="Siguiente">&#10095;</button>
     </div>
 
-    <!-- Script para el carrusel de recuadros infinito -->
+    <!-- Oferta Académica -->
+    <div class="oferta-academica">
+        <h2>Oferta Académica</h2>
+        <div class="programas">
+            <div class="programa">
+                <div>
+                    <h3>Licenciatura en Pedagogía</h3>
+                    <p><strong>Duración:</strong> 4 años</p>
+                    <p><strong>Tiempo estimado:</strong> 8 semestres</p>
+                    <p>Formación integral en pedagogía para el desarrollo educativo.</p>
+                </div>
+                <img src="licenciatura.jpg" alt="Licenciatura en Pedagogía">
+            </div>
+            <div class="programa">
+                <div>
+                    <h3>Maestría en Ciencias de la Educación</h3>
+                    <p><strong>Duración:</strong> 2 años</p>
+                    <p><strong>Tiempo estimado:</strong> 4 semestres</p>
+                    <p>Especialízate en investigación y desarrollo educativo.</p>
+                </div>
+                <img src="maestria.jpg" alt="Maestría en Ciencias de la Educación">
+            </div>
+            <div class="programa">
+                <div>
+                    <h3>Doctorado en Ciencias de la Educación</h3>
+                    <p><strong>Duración:</strong> 3 años</p>
+                    <p><strong>Tiempo estimado:</strong> 6 semestres</p>
+                    <p>Lidera proyectos de investigación y transformación educativa.</p>
+                </div>
+                <img src="doctorado.jpg" alt="Doctorado en Ciencias de la Educación">
+            </div>
+            <div class="programa">
+                <div>
+                    <h3>Certificaciones</h3>
+                    <p><strong>Duración:</strong> 6 meses</p>
+                    <p><strong>Tiempo estimado:</strong> 1 semestre</p>
+                    <p>Amplía tus habilidades con nuestras certificaciones especializadas.</p>
+                </div>
+                <img src="certificacion.jpg" alt="Certificaciones">
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Contáctanos -->
+    <div class="contacto" id="contact">
+        <h2>Contáctanos</h2>
+        <div class="redes-sociales">
+            <a href="https://www.instagram.com/tuinstagram" target="_blank" aria-label="Instagram">
+                <img src="instagram.png" alt="Instagram">
+            </a>
+            <a href="https://www.facebook.com/tufacebook" target="_blank" aria-label="Facebook">
+                <img src="facebook.png" alt="Facebook">
+            </a>
+        </div>
+        <div class="info-contacto">
+            <p>Correo electrónico: informacion@espicentro.com</p>
+            <p>Dirección: Calle Calzada de los Jinetes #7 Piso 2. Colonia Las Arboledas Mpio. Atizapán de Zaragoza Estado de México. Cp. 52950</p>
+        </div>
+    </div>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/5211234567890" target="_blank" class="whatsapp-float" aria-label="Contáctanos por WhatsApp">
+        <img src="whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon">
+        <span>CONTÁCTANOS</span>
+    </a>
+
+    <!-- Modal para imágenes -->
+    <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <button class="modal-nav prev" onclick="moveModalSlide(-1)" aria-label="Anterior">&#10094;</button>
+        <img class="modal-content" id="modal-img" alt="Modal Image">
+        <button class="modal-nav next" onclick="moveModalSlide(1)" aria-label="Siguiente">&#10095;</button>
+    </div>
+
     <script>
-        const recuadrosContainer = document.querySelector('.recuadros');
-        const recuadros = document.querySelectorAll('.recuadro');
-        const totalRecuadros = recuadros.length;
-        const recuadroWidth = recuadros[0].offsetWidth + 20; // Ancho del recuadro + gap
-        let currentIndex = 0;
+        // Carrusel de imágenes
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.carrusel img');
+        const totalSlides = slides.length;
 
-        function moveRecuadros() {
-            currentIndex = (currentIndex + 1) % totalRecuadros;
-            recuadrosContainer.style.transform = `translateX(-${currentIndex * recuadroWidth}px)`;
-
-            // Si llega al final, reinicia sin animación
-            if (currentIndex === totalRecuadros - 1) {
-                setTimeout(() => {
-                    recuadrosContainer.style.transition = 'none';
-                    recuadrosContainer.style.transform = 'translateX(0)';
-                    currentIndex = 0;
-                }, 500); // Espera a que termine la animación
-                setTimeout(() => {
-                    recuadrosContainer.style.transition = 'transform 0.5s ease-in-out';
-                }, 10);
-            }
+        function showSlide(index) {
+            if (index >= totalSlides) slideIndex = 0;
+            if (index < 0) slideIndex = totalSlides - 1;
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[slideIndex].classList.add('active');
         }
 
-        setInterval(moveRecuadros, 3000); // Cambia cada 3 segundos
+        function moveSlide(n) {
+            slideIndex += n;
+            showSlide(slideIndex);
+        }
+
+        setInterval(() => moveSlide(1), 3000); // Cambia la imagen cada 3 segundos
+
+        // Carrusel de recuadros
+        const recuadrosContainer = document.querySelector('.recuadros');
+        const recuadroWidth = document.querySelector('.recuadro').offsetWidth + 20; // Ancho del recuadro + gap
+        let currentRecuadroIndex = 0;
+
+        function moveRecuadros(n) {
+            const totalRecuadros = document.querySelectorAll('.recuadro').length;
+            currentRecuadroIndex = (currentRecuadroIndex + n + totalRecuadros) % totalRecuadros;
+            recuadrosContainer.style.transform = `translateX(-${currentRecuadroIndex * recuadroWidth}px)`;
+        }
+
+        setInterval(() => moveRecuadros(1), 4000); // Mueve los recuadros cada 4 segundos
+
+        // Modal para imágenes
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modal-img');
+        const closeModal = document.querySelector('.close');
+        let currentModalIndex = 0;
+
+        // Abrir modal al hacer clic en una imagen de la oferta académica
+        document.querySelectorAll('.programa img').forEach((img, index) => {
+            img.addEventListener('click', () => {
+                modal.style.display = 'flex';
+                modalImg.src = img.src;
+                currentModalIndex = index;
+            });
+        });
+
+        // Cerrar modal
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // Cerrar modal al hacer clic fuera de la imagen
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Navegación en el modal
+        function moveModalSlide(n) {
+            const modalImages = document.querySelectorAll('.programa img');
+            currentModalIndex = (currentModalIndex + n + modalImages.length) % modalImages.length;
+            modalImg.src = modalImages[currentModalIndex].src;
+        }
     </script>
 </body>
 </html>
