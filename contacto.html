@@ -35,7 +35,7 @@
 
         .nav-links {
             display: flex;
-            gap: 10px;
+            gap: 15px;
             margin: 0 auto;
             flex-wrap: wrap;
             justify-content: center;
@@ -151,19 +151,40 @@
             border-radius: 10px;
         }
 
-        /* Eslogan */
-        .eslogan {
-            text-align: center;
-            margin: 40px 0;
-            font-size: 1.5rem;
-            font-weight: bold;
-            animation: pulse 2s infinite;
+        /* Botón flotante de WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-size: 14px;
+            z-index: 1000;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite, border-glow 2s infinite;
+        }
+
+        .whatsapp-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
         }
 
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.1); }
             100% { transform: scale(1); }
+        }
+
+        @keyframes border-glow {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            50% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
         /* Media Queries para móviles */
@@ -188,8 +209,16 @@
                 height: 300px;
             }
 
-            .eslogan {
-                font-size: 1.2rem;
+            .whatsapp-float {
+                bottom: 10px;
+                right: 10px;
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+
+            .whatsapp-icon {
+                width: 20px;
+                height: 20px;
             }
         }
     </style>
@@ -224,11 +253,6 @@
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3760.041094313611!2d-99.2347226850927!3d19.55634328683536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d21f8b8f8f8f8f%3A0x8f8f8f8f8f8f8f8f!2sCalle%20Calzada%20de%20los%20Jinetes%20%237%2C%20Las%20Arboledas%2C%2052950%20Atizap%C3%A1n%20de%20Zaragoza%2C%20M%C3%A9x.!5e0!3m2!1ses!2smx!4v1620000000000!5m2!1ses!2smx" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
-    </div>
-
-    <!-- Eslogan -->
-    <div class="eslogan">
-        <p>¡Inscríbete hoy y forma parte de la comunidad líder en educación profesional!</p>
     </div>
 
     <!-- Botón flotante de WhatsApp -->
