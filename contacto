@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - ESPI</title>
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #000 url('imagen.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        /* Barra de navegación */
+        .navbar {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            height: 40px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 10px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .navbar a:hover {
+            color: #00bfff;
+        }
+
+        /* Hero section */
+        .hero {
+            text-align: center;
+            padding: 120px 20px 50px;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 80px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+            margin: 0;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Formulario de contacto */
+        .formulario-contacto {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        .formulario-contacto h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .formulario-contacto label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        .formulario-contacto input,
+        .formulario-contacto textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .formulario-contacto textarea {
+            resize: vertical;
+            height: 150px;
+        }
+
+        .formulario-contacto button {
+            width: 100%;
+            padding: 10px;
+            background-color: #00bfff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .formulario-contacto button:hover {
+            background-color: #009acd;
+        }
+
+        /* Media Queries para móviles */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .navbar a {
+                font-size: 14px;
+            }
+
+            .formulario-contacto {
+                padding: 15px;
+            }
+
+            .formulario-contacto h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <div class="navbar">
+        <img src="ESPI.png" alt="Logo ESPI" class="logo" onclick="window.location.href='index.html'">
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="sobre-nosotros.html">Sobre Nosotros</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="#" onclick="alert('La plataforma estudiantil estará disponible próximamente.')">Plataforma Estudiantil</a>
+        </div>
+    </div>
+
+    <!-- Hero section -->
+    <div class="hero">
+        <h1>Contacto</h1>
+    </div>
+
+    <!-- Formulario de contacto -->
+    <div class="formulario-contacto">
+        <h2>Envíanos un mensaje</h2>
+        <form action="#" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/5211234567890" target="_blank" class="whatsapp-float">
+        <img src="whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon">
+        <span>CONTÁCTANOS</span>
+    </a>
+</body>
+</html>
