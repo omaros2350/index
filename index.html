@@ -91,28 +91,24 @@
             margin: 40px 0 20px;
             font-weight: bold;
         }
-        .recuadros-container {
-            overflow: hidden;
-            width: 100%;
-            position: relative;
-        }
-        .recuadros {
-            display: flex;
+        .recuadros-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             padding: 20px;
-            transition: transform 0.5s ease-in-out;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         .recuadro {
             background: rgba(255, 255, 255, 0.2);
-            padding: 15px;
+            padding: 20px;
             border-radius: 10px;
             text-align: center;
-            width: 250px;
-            flex: 0 0 auto;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         .recuadro:hover {
             transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
         .recuadro img {
             width: 80px;
@@ -139,32 +135,28 @@
             color: white;
         }
         .programas {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
-            justify-content: center;
+            padding: 20px;
         }
         .programa {
             background: rgba(255, 255, 255, 0.2);
             padding: 20px;
             border-radius: 10px;
-            width: 100%;
-            max-width: 600px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
             text-align: left;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         .programa:hover {
             transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
         .programa img {
-            width: 150px;
+            width: 100%;
             height: 150px;
             object-fit: cover;
             border-radius: 10px;
-            cursor: pointer;
+            margin-bottom: 15px;
         }
         .programa h3 {
             font-size: 1.5rem;
@@ -247,14 +239,10 @@
             .navbar a { font-size: 14px; }
             .carrusel { max-width: 90%; }
             .titulo-recuadros { font-size: 1.8rem; }
-            .recuadros-container { overflow-x: auto; }
-            .recuadros { gap: 10px; padding: 10px; }
-            .recuadro { width: 80%; max-width: none; }
-            .recuadro img { width: 60px; height: 60px; }
+            .recuadros-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
             .oferta-academica { padding: 15px; }
             .oferta-academica h2 { font-size: 1.5rem; }
-            .programa { flex-direction: column; text-align: center; }
-            .programa img { width: 100px; height: 100px; }
+            .programa img { height: 120px; }
             .contacto { padding: 15px; }
             .contacto h2 { font-size: 1.3rem; }
             .contacto p { font-size: 0.9rem; }
@@ -293,18 +281,16 @@
     <!-- Título antes de los recuadros -->
     <h2 class="titulo-recuadros">¿Por qué formar parte de ESPI?</h2>
 
-    <!-- Recuadros -->
-    <div class="recuadros-container">
-        <div class="recuadros">
-            <div class="recuadro"><img src="digitales.jpg" alt="Nativos Digitales"><p>Porque somos nativos digitales: estudia sin pisar un salón de clases</p></div>
-            <div class="recuadro"><img src="titulo.jpg" alt="Graduación"><p>Gradúate con título profesional</p></div>
-            <div class="recuadro"><img src="empleo.jpg" alt="Empleo"><p>Demuestra tu conocimiento en tu siguiente oportunidad laboral.</p></div>
-            <div class="recuadro"><img src="global.jpg" alt="Comunidad"><p>Comunidad Global: Enriquece tu educación con personas de todo el mundo.</p></div>
-            <div class="recuadro"><img src="campus.jpg" alt="Campus Virtual"><p>Campus virtual 24/7: Crea tu propio horario con las clases, materiales y apoyo disponibles.</p></div>
-            <div class="recuadro"><img src="calidad.jpg" alt="Calidad"><p>Calidad en acción: Suma credenciales a tu perfil de nuestras alianzas con reconocidas instituciones.</p></div>
-            <div class="recuadro"><img src="tutor.jpg" alt="Tutores"><p>Estudia acompañado: Guía y apoyo de tutores expertos en cada etapa de tu formación.</p></div>
-            <div class="recuadro"><img src="inversion.jpg" alt="Inversión"><p>Invierte en ti mismo</p></div>
-        </div>
+    <!-- Recuadros en cuadrícula -->
+    <div class="recuadros-grid">
+        <div class="recuadro"><img src="digitales.jpg" alt="Nativos Digitales"><p>Porque somos nativos digitales: estudia sin pisar un salón de clases</p></div>
+        <div class="recuadro"><img src="titulo.jpg" alt="Graduación"><p>Gradúate con título profesional</p></div>
+        <div class="recuadro"><img src="empleo.jpg" alt="Empleo"><p>Demuestra tu conocimiento en tu siguiente oportunidad laboral.</p></div>
+        <div class="recuadro"><img src="global.jpg" alt="Comunidad"><p>Comunidad Global: Enriquece tu educación con personas de todo el mundo.</p></div>
+        <div class="recuadro"><img src="campus.jpg" alt="Campus Virtual"><p>Campus virtual 24/7: Crea tu propio horario con las clases, materiales y apoyo disponibles.</p></div>
+        <div class="recuadro"><img src="calidad.jpg" alt="Calidad"><p>Calidad en acción: Suma credenciales a tu perfil de nuestras alianzas con reconocidas instituciones.</p></div>
+        <div class="recuadro"><img src="tutor.jpg" alt="Tutores"><p>Estudia acompañado: Guía y apoyo de tutores expertos en cada etapa de tu formación.</p></div>
+        <div class="recuadro"><img src="inversion.jpg" alt="Inversión"><p>Invierte en ti mismo</p></div>
     </div>
 
     <!-- Oferta Académica -->
@@ -312,40 +298,40 @@
         <h2>Oferta Académica</h2>
         <div class="programas">
             <div class="programa">
+                <img src="licenciatura.jpg" alt="Licenciatura en Pedagogía">
                 <div>
                     <h3>Licenciatura en Pedagogía</h3>
                     <p><strong>Duración:</strong> 4 años</p>
                     <p><strong>Tiempo estimado:</strong> 8 semestres</p>
                     <p>Formación integral en pedagogía para el desarrollo educativo.</p>
                 </div>
-                <img src="licenciatura.jpg" alt="Licenciatura en Pedagogía">
             </div>
             <div class="programa">
+                <img src="maestria.jpg" alt="Maestría en Ciencias de la Educación">
                 <div>
                     <h3>Maestría en Ciencias de la Educación</h3>
                     <p><strong>Duración:</strong> 2 años</p>
                     <p><strong>Tiempo estimado:</strong> 4 semestres</p>
                     <p>Especialízate en investigación y desarrollo educativo.</p>
                 </div>
-                <img src="maestria.jpg" alt="Maestría en Ciencias de la Educación">
             </div>
             <div class="programa">
+                <img src="doctorado.jpg" alt="Doctorado en Ciencias de la Educación">
                 <div>
                     <h3>Doctorado en Ciencias de la Educación</h3>
                     <p><strong>Duración:</strong> 3 años</p>
                     <p><strong>Tiempo estimado:</strong> 6 semestres</p>
                     <p>Lidera proyectos de investigación y transformación educativa.</p>
                 </div>
-                <img src="doctorado.jpg" alt="Doctorado en Ciencias de la Educación">
             </div>
             <div class="programa">
+                <img src="certificacion.jpg" alt="Certificaciones">
                 <div>
                     <h3>Certificaciones</h3>
                     <p><strong>Duración:</strong> 6 meses</p>
                     <p><strong>Tiempo estimado:</strong> 1 semestre</p>
                     <p>Amplía tus habilidades con nuestras certificaciones especializadas.</p>
                 </div>
-                <img src="certificacion.jpg" alt="Certificaciones">
             </div>
         </div>
     </div>
@@ -392,19 +378,6 @@
         }
 
         setInterval(() => moveSlide(1), 3000); // Cambia la imagen cada 3 segundos
-
-        // Carrusel de recuadros
-        const recuadrosContainer = document.querySelector('.recuadros');
-        const recuadroWidth = document.querySelector('.recuadro').offsetWidth + 20; // Ancho del recuadro + gap
-        let currentRecuadroIndex = 0;
-
-        function moveRecuadros(n) {
-            const totalRecuadros = document.querySelectorAll('.recuadro').length;
-            currentRecuadroIndex = (currentRecuadroIndex + n + totalRecuadros) % totalRecuadros;
-            recuadrosContainer.style.transform = `translateX(-${currentRecuadroIndex * recuadroWidth}px)`;
-        }
-
-        setInterval(() => moveRecuadros(1), 3000); // Mueve los recuadros cada 3 segundos
     </script>
 </body>
 </html>
