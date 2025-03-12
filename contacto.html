@@ -147,16 +147,25 @@
             text-decoration: underline;
         }
 
-        .contacto-info img {
+        /* Carrusel de imágenes */
+        .carrusel {
+            position: relative;
             width: 100%;
             max-width: 400px;
+            margin: 20px auto;
+            overflow: hidden;
             border-radius: 10px;
-            margin-top: 20px;
-            transition: transform 0.3s;
         }
 
-        .contacto-info img:hover {
-            transform: scale(1.05);
+        .carrusel img {
+            width: 100%;
+            display: none;
+            border-radius: 10px;
+        }
+
+        .carrusel img.active {
+            display: block;
+            animation: fadeIn 1s ease-in-out;
         }
 
         /* Mapa de Google */
@@ -170,6 +179,15 @@
             height: 400px;
             border: none;
             border-radius: 10px;
+        }
+
+        /* Eslogan animado */
+        .eslogan {
+            text-align: center;
+            margin: 40px 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+            animation: pulse 2s infinite;
         }
 
         /* Sección de medios de contacto */
@@ -205,8 +223,8 @@
         }
 
         .medios-contacto .redes-sociales img {
-            width: 24px; /* Tamaño ajustado */
-            height: 24px; /* Tamaño ajustado */
+            width: 24px;
+            height: 24px;
         }
 
         .medios-contacto .info-contacto p {
@@ -266,6 +284,10 @@
                 height: 300px;
             }
 
+            .eslogan {
+                font-size: 1.2rem;
+            }
+
             .medios-contacto {
                 padding: 15px;
             }
@@ -275,8 +297,8 @@
             }
 
             .medios-contacto .redes-sociales img {
-                width: 20px; /* Tamaño ajustado para móviles */
-                height: 20px; /* Tamaño ajustado para móviles */
+                width: 20px;
+                height: 20px;
             }
 
             .whatsapp-float {
@@ -322,12 +344,23 @@
                         Calle Calzada de los Jinetes #7 Piso 2. Colonia Las Arboledas, Mpio. Atizapán de Zaragoza, Estado de México. Cp. 52950
                     </a>
                 </p>
-                <img src="ubicacion.jpg" alt="Ubicación ESPI">
+                <!-- Carrusel de imágenes -->
+                <div class="carrusel">
+                    <img src="imagen1.jpg" alt="Imagen 1" class="active">
+                    <img src="imagen2.jpg" alt="Imagen 2">
+                    <img src="imagen3.jpg" alt="Imagen 3">
+                    <img src="imagen4.jpg" alt="Imagen 4">
+                </div>
             </div>
             <div class="mapa">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30078.261137971684!2d-99.27961122568362!3d19.550943100000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d21d634cb76a51%3A0xd30815b65028feff!2sCentro%20ESPI.%20S.C.!5e0!3m2!1ses!2smx!4v1741808812576!5m2!1ses!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
+    </div>
+
+    <!-- Eslogan animado -->
+    <div class="eslogan">
+        <p>¡Forma parte de nuestra gran comunidad estudiantil y alcanza tus metas académicas!</p>
     </div>
 
     <!-- Sección de medios de contacto -->
@@ -352,5 +385,21 @@
         <img src="whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon">
         <span>CONTÁCTANOS</span>
     </a>
+
+    <!-- Script para el carrusel -->
+    <script>
+        // Carrusel de imágenes
+        const carrusel = document.querySelector('.carrusel');
+        const imagenes = carrusel.querySelectorAll('img');
+        let indice = 0;
+
+        function cambiarImagen() {
+            imagenes[indice].classList.remove('active');
+            indice = (indice + 1) % imagenes.length;
+            imagenes[indice].classList.add('active');
+        }
+
+        setInterval(cambiarImagen, 3000); // Cambia la imagen cada 3 segundos
+    </script>
 </body>
 </html>
