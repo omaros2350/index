@@ -79,58 +79,91 @@
             to { opacity: 1; }
         }
 
-        /* Formulario de contacto */
-        .formulario-contacto {
-            max-width: 600px;
+        /* Sección de contacto */
+        .contacto-container {
+            max-width: 1200px;
             margin: 20px auto;
             padding: 20px;
             background: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
         }
 
-        .formulario-contacto h2 {
+        .contacto-container h2 {
             font-size: 1.8rem;
             margin-bottom: 20px;
             text-align: center;
+            animation: slideIn 1s ease-in-out;
         }
 
-        .formulario-contacto label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 1rem;
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
-        .formulario-contacto input,
-        .formulario-contacto textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
+        .contacto-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .contacto-info div {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
             background: rgba(255, 255, 255, 0.1);
-            color: white;
+            border-radius: 10px;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
-        .formulario-contacto textarea {
-            resize: vertical;
-            height: 150px;
+        .contacto-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
         }
 
-        .formulario-contacto button {
-            width: 100%;
-            padding: 10px;
-            background-color: #00bfff;
-            border: none;
-            border-radius: 5px;
-            color: white;
+        .contacto-info p {
             font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            line-height: 1.6;
         }
 
-        .formulario-contacto button:hover {
-            background-color: #009acd;
+        .contacto-info img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            margin-top: 20px;
+            transition: transform 0.3s;
+        }
+
+        .contacto-info img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Mapa de Google */
+        .mapa {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .mapa iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        /* Eslogan */
+        .eslogan {
+            text-align: center;
+            margin: 40px 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
         /* Media Queries para móviles */
@@ -143,12 +176,20 @@
                 font-size: 14px;
             }
 
-            .formulario-contacto {
+            .contacto-container h2 {
+                font-size: 1.5rem;
+            }
+
+            .contacto-info div {
                 padding: 15px;
             }
 
-            .formulario-contacto h2 {
-                font-size: 1.5rem;
+            .mapa iframe {
+                height: 300px;
+            }
+
+            .eslogan {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -170,21 +211,24 @@
         <h1>Contacto</h1>
     </div>
 
-    <!-- Formulario de contacto -->
-    <div class="formulario-contacto">
-        <h2>Envíanos un mensaje</h2>
-        <form action="#" method="post">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
+    <!-- Sección de contacto -->
+    <div class="contacto-container">
+        <h2>Nos ubicamos en:</h2>
+        <div class="contacto-info">
+            <div>
+                <h3>Dirección</h3>
+                <p>Calle Calzada de los Jinetes #7 Piso 2. Colonia Las Arboledas, Mpio. Atizapán de Zaragoza, Estado de México. Cp. 52950</p>
+                <img src="ubicacion.jpg" alt="Ubicación ESPI">
+            </div>
+            <div class="mapa">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3760.041094313611!2d-99.2347226850927!3d19.55634328683536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d21f8b8f8f8f8f%3A0x8f8f8f8f8f8f8f8f!2sCalle%20Calzada%20de%20los%20Jinetes%20%237%2C%20Las%20Arboledas%2C%2052950%20Atizap%C3%A1n%20de%20Zaragoza%2C%20M%C3%A9x.!5e0!3m2!1ses!2smx!4v1620000000000!5m2!1ses!2smx" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
 
-            <label for="email">Correo electrónico:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje" name="mensaje" required></textarea>
-
-            <button type="submit">Enviar</button>
-        </form>
+    <!-- Eslogan -->
+    <div class="eslogan">
+        <p>¡Inscríbete hoy y forma parte de la comunidad líder en educación profesional!</p>
     </div>
 
     <!-- Botón flotante de WhatsApp -->
