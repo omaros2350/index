@@ -78,38 +78,11 @@
         }
         .carrusel img {
             width: 100%;
-            opacity: 0;
+            display: none;
             transition: opacity 1s ease-in-out;
-            position: absolute;
-            top: 0;
-            left: 0;
         }
         .carrusel img.active {
-            opacity: 1;
-        }
-        .carrusel-btns {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-            padding: 0 10px;
-        }
-        .btn-carrusel {
-            background-color: rgba(0, 0, 0, 0.4);
-            color: white;
-            padding: 10px;
-            border-radius: 50%;
-            cursor: pointer;
-            border: none;
-            font-size: 18px;
-            opacity: 0.7;
-            transition: opacity 0.3s;
-        }
-        .btn-carrusel:hover {
-            opacity: 1;
+            display: block;
         }
         .titulo-recuadros {
             text-align: center;
@@ -122,7 +95,6 @@
             overflow: hidden;
             width: 100%;
             position: relative;
-            scroll-snap-type: x mandatory;
         }
         .recuadros {
             display: flex;
@@ -138,7 +110,6 @@
             width: 250px;
             flex: 0 0 auto;
             transition: transform 0.3s;
-            scroll-snap-align: start;
         }
         .recuadro:hover {
             transform: scale(1.05);
@@ -153,23 +124,6 @@
         }
         .recuadro img:hover {
             transform: scale(1.1);
-        }
-        .carrusel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            z-index: 10;
-        }
-        .carrusel-btn.prev {
-            left: 10px;
-        }
-        .carrusel-btn.next {
-            right: 10px;
         }
         .oferta-academica {
             padding: 20px;
@@ -279,54 +233,6 @@
             height: 24px;
             margin-right: 10px;
         }
-        /* Modal para imágenes */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            justify-content: center;
-            align-items: center;
-        }
-        .modal-content {
-            max-width: 80%;
-            max-height: 80%;
-            border-radius: 10px;
-        }
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 35px;
-            color: white;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .close:hover {
-            color: #00bfff;
-        }
-        .modal-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            z-index: 10;
-            font-size: 24px;
-        }
-        .modal-nav.prev {
-            left: 20px;
-        }
-        .modal-nav.next {
-            right: 20px;
-        }
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -382,10 +288,6 @@
         <img src="pedagogia3.jpg" alt="Pedagogía 3">
         <img src="pedagogia4.jpg" alt="Pedagogía 4">
         <img src="pedagogia5.jpg" alt="Pedagogía 5">
-        <div class="carrusel-btns">
-            <button class="btn-carrusel" onclick="moveSlide(-1)" aria-label="Anterior">&#10094;</button>
-            <button class="btn-carrusel" onclick="moveSlide(1)" aria-label="Siguiente">&#10095;</button>
-        </div>
     </div>
 
     <!-- Título antes de los recuadros -->
@@ -393,7 +295,6 @@
 
     <!-- Recuadros -->
     <div class="recuadros-container">
-        <button class="carrusel-btn prev" onclick="moveRecuadros(-1)" aria-label="Anterior">&#10094;</button>
         <div class="recuadros">
             <div class="recuadro"><img src="digitales.jpg" alt="Nativos Digitales"><p>Porque somos nativos digitales: estudia sin pisar un salón de clases</p></div>
             <div class="recuadro"><img src="titulo.jpg" alt="Graduación"><p>Gradúate con título profesional</p></div>
@@ -404,7 +305,6 @@
             <div class="recuadro"><img src="tutor.jpg" alt="Tutores"><p>Estudia acompañado: Guía y apoyo de tutores expertos en cada etapa de tu formación.</p></div>
             <div class="recuadro"><img src="inversion.jpg" alt="Inversión"><p>Invierte en ti mismo</p></div>
         </div>
-        <button class="carrusel-btn next" onclick="moveRecuadros(1)" aria-label="Siguiente">&#10095;</button>
     </div>
 
     <!-- Oferta Académica -->
@@ -473,16 +373,8 @@
         <span>CONTÁCTANOS</span>
     </a>
 
-    <!-- Modal para imágenes -->
-    <div id="modal" class="modal">
-        <span class="close">&times;</span>
-        <button class="modal-nav prev" onclick="moveModalSlide(-1)" aria-label="Anterior">&#10094;</button>
-        <img class="modal-content" id="modal-img" alt="Modal Image">
-        <button class="modal-nav next" onclick="moveModalSlide(1)" aria-label="Siguiente">&#10095;</button>
-    </div>
-
     <script>
-        // Carrusel de imágenes
+        // Carrusel de imágenes (Pedagogía)
         let slideIndex = 0;
         const slides = document.querySelectorAll('.carrusel img');
         const totalSlides = slides.length;
@@ -512,41 +404,7 @@
             recuadrosContainer.style.transform = `translateX(-${currentRecuadroIndex * recuadroWidth}px)`;
         }
 
-        setInterval(() => moveRecuadros(1), 4000); // Mueve los recuadros cada 4 segundos
-
-        // Modal para imágenes
-        const modal = document.getElementById('modal');
-        const modalImg = document.getElementById('modal-img');
-        const closeModal = document.querySelector('.close');
-        let currentModalIndex = 0;
-
-        // Abrir modal al hacer clic en una imagen de la oferta académica
-        document.querySelectorAll('.programa img').forEach((img, index) => {
-            img.addEventListener('click', () => {
-                modal.style.display = 'flex';
-                modalImg.src = img.src;
-                currentModalIndex = index;
-            });
-        });
-
-        // Cerrar modal
-        closeModal.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-
-        // Cerrar modal al hacer clic fuera de la imagen
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-
-        // Navegación en el modal
-        function moveModalSlide(n) {
-            const modalImages = document.querySelectorAll('.programa img');
-            currentModalIndex = (currentModalIndex + n + modalImages.length) % modalImages.length;
-            modalImg.src = modalImages[currentModalIndex].src;
-        }
+        setInterval(() => moveRecuadros(1), 3000); // Mueve los recuadros cada 3 segundos
     </script>
 </body>
 </html>
