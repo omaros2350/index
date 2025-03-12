@@ -22,7 +22,7 @@
             position: fixed;
             top: 0;
             display: flex;
-            justify-content: center; /* Centrar el contenido */
+            justify-content: center;
             align-items: center;
             z-index: 1000;
         }
@@ -35,8 +35,7 @@
         .nav-links {
             display: flex;
             gap: 20px;
-            margin-left: auto; /* Alinear a la derecha */
-            margin-right: auto; /* Alinear a la izquierda */
+            justify-content: center;
         }
 
         .navbar a {
@@ -48,6 +47,11 @@
 
         .navbar a:hover {
             color: #00bfff;
+        }
+
+        .disabled-link {
+            pointer-events: none;
+            color: gray;
         }
 
         /* Hero section con animación */
@@ -67,16 +71,10 @@
             to { opacity: 1; }
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-
         .hero img {
-            height: 100px; /* Logo más grande */
+            height: 100px;
             margin-bottom: 20px;
-            animation: fadeIn 1.5s ease-in-out, pulse 2s infinite; /* Animación de fadeIn y pulse */
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         .hero h1 {
@@ -97,79 +95,18 @@
             padding: 20px;
             background: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
+            gap: 20px;
         }
 
         .mision, .vision {
             flex: 1;
             min-width: 300px;
-            margin: 10px;
         }
 
         .mision h2, .vision h2 {
             font-size: 1.8rem;
             margin-bottom: 15px;
-            color: #00bfff; /* Azul fuerte */
-        }
-
-        .mision p, .vision p {
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        .mision img, .vision img {
-            width: 100%;
-            max-width: 400px;
-            border-radius: 10px;
-            margin-top: 20px;
-            animation: slideIn 1s ease-in-out;
-        }
-
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-
-        /* Medios de contacto */
-        .medios-contacto {
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.5);
-            max-width: 800px;
-            margin: 20px auto;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .medios-contacto h2 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-
-        .medios-contacto .redes-sociales {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .medios-contacto .redes-sociales a {
-            text-decoration: none;
-            color: white;
-            transition: transform 0.3s;
-        }
-
-        .medios-contacto .redes-sociales a:hover {
-            transform: scale(1.1);
-        }
-
-        .medios-contacto .redes-sociales img {
-            width: 30px;
-            height: 30px;
-        }
-
-        .medios-contacto .info-contacto p {
-            font-size: 0.9rem;
-            margin: 10px 0;
-            color: #ccc;
+            color: #00bfff;
         }
 
         /* Botón flotante de WhatsApp */
@@ -177,12 +114,9 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            z-index: 1000;
             background-color: #25d366;
             border-radius: 10px;
             padding: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s;
             text-decoration: none;
             color: white;
             font-size: 14px;
@@ -190,105 +124,41 @@
             align-items: center;
             gap: 10px;
         }
-
-        .whatsapp-float:hover {
-            transform: scale(1.05);
-        }
-
-        .whatsapp-icon {
-            width: 24px;
-            height: 24px;
-        }
-
-        /* Media Queries para móviles */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .navbar a {
-                font-size: 16px;
-            }
-
-            .mision-vision {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .mision, .vision {
-                margin: 10px 0;
-            }
-
-            .mision img, .vision img {
-                max-width: 100%;
-            }
-
-            .medios-contacto {
-                padding: 15px;
-            }
-
-            .medios-contacto h2 {
-                font-size: 1.3rem;
-            }
-
-            .medios-contacto p {
-                font-size: 0.9rem;
-            }
-
-            .whatsapp-float {
-                bottom: 10px;
-                right: 10px;
-                padding: 8px;
-                font-size: 12px;
-            }
-
-            .whatsapp-icon {
-                width: 20px;
-                height: 20px;
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- Barra de navegación centrada -->
     <div class="navbar">
         <img src="ESPI.png" alt="Logo ESPI" class="logo" onclick="window.location.href='index.html'">
         <div class="nav-links">
             <a href="index.html">Inicio</a>
             <a href="sobre-nosotros.html">Sobre Nosotros</a>
             <a href="#contact">Contacto</a>
-            <a href="#" onclick="alert('La plataforma estudiantil estará disponible próximamente.')">Plataforma Estudiantil</a>
+            <a href="#" class="disabled-link">Plataforma Estudiantil</a>
         </div>
     </div>
 
-    <!-- Hero section con animación -->
     <div class="hero">
         <img src="ESPI.png" alt="Logo ESPI">
         <h1>Sobre Nosotros</h1>
     </div>
 
-    <!-- Sección de Misión y Visión -->
     <div class="mision-vision">
         <div class="mision">
             <h2>Nuestra Misión</h2>
             <p>
-                En el Centro de Estudios Profesionales y de Investigación ESPI, nos dedicamos a ofrecer una educación de calidad
-                que prepare a nuestros estudiantes para los desafíos del mundo actual. Nuestro enfoque innovador y nuestra
-                comunidad global nos distinguen como líderes en la formación profesional.
+                En ESPI, ofrecemos una educación de calidad para preparar a nuestros estudiantes para los desafíos del mundo actual.
             </p>
             <img src="mision.jpg" alt="Misión ESPI">
         </div>
         <div class="vision">
             <h2>Nuestra Visión</h2>
             <p>
-                Ser reconocidos como una institución líder en la formación de profesionales altamente capacitados, comprometidos
-                con el desarrollo sostenible y la innovación en sus áreas de expertise.
+                Ser una institución líder en la formación de profesionales altamente capacitados.
             </p>
             <img src="vision.jpg" alt="Visión ESPI">
         </div>
     </div>
 
-    <!-- Medios de contacto -->
     <div class="medios-contacto">
         <h2>Medios de Contacto</h2>
         <div class="redes-sociales">
@@ -299,13 +169,10 @@
                 <img src="facebook.png" alt="Facebook">
             </a>
         </div>
-        <div class="info-contacto">
-            <p>Correo electrónico: contacto@espi.edu.mx</p>
-            <p>Dirección: Av. Ficticia #123, Ciudad Ficticia, México</p>
-        </div>
+        <p>Correo: contacto@espi.edu.mx</p>
+        <p>Dirección: Av. Ficticia #123, Ciudad Ficticia, México</p>
     </div>
 
-    <!-- Botón flotante de WhatsApp -->
     <a href="https://wa.me/5211234567890" target="_blank" class="whatsapp-float">
         <img src="whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon">
         <span>CONTÁCTANOS</span>
