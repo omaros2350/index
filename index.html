@@ -155,7 +155,7 @@
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            width: 300px; /* Aumentamos el ancho */
+            width: 350px; /* Aumentamos el ancho para laptops */
             flex: 0 0 auto;
             transition: transform 0.3s;
         }
@@ -165,8 +165,8 @@
         }
 
         .recuadro img {
-            width: 100px; /* Imágenes más grandes */
-            height: 100px;
+            width: 120px; /* Imágenes más grandes */
+            height: 120px;
             object-fit: cover;
             border-radius: 50%;
             margin-bottom: 10px;
@@ -196,6 +196,17 @@
             .carrusel { max-width: 90%; }
             .recuadro { width: 250px; } /* Ajuste para móviles */
             .recuadro img { width: 80px; height: 80px; } /* Ajuste para móviles */
+        }
+
+        /* Media Queries para laptops */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .recuadro {
+                width: 300px; /* Ajuste para laptops */
+            }
+            .recuadro img {
+                width: 100px; /* Ajuste para laptops */
+                height: 100px;
+            }
         }
     </style>
 </head>
