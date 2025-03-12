@@ -22,7 +22,7 @@
             position: fixed;
             top: 0;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             z-index: 1000;
         }
@@ -35,8 +35,6 @@
         .nav-links {
             display: flex;
             gap: 15px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .navbar a {
@@ -45,118 +43,17 @@
             font-size: 16px;
         }
 
-        /* Hero section */
-        .hero {
-            text-align: center;
-            padding: 100px 15px 40px;
-            background: rgba(0, 0, 0, 0.5);
-            margin-top: 70px;
-        }
-
-        .hero img {
-            height: 80px;
-            margin-bottom: 15px;
-        }
-
-        .hero h1 {
-            font-size: 2rem;
-            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
-            margin: 0;
-        }
-
-        /* Misión y Visión */
-        .mision-vision {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            max-width: 1000px;
-            margin: 15px auto;
-            padding: 15px;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 8px;
-        }
-
-        .mision, .vision {
-            flex: 1;
-            min-width: 280px;
-            margin: 10px;
-        }
-
-        .mision h2, .vision h2 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #00bfff;
-        }
-
-        .mision p, .vision p {
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        .mision img, .vision img {
-            width: 100%;
-            max-width: 350px;
-            border-radius: 8px;
-            margin-top: 15px;
-        }
-
-        /* Contacto */
-        .medios-contacto {
-            padding: 15px;
-            background: rgba(0, 0, 0, 0.5);
-            max-width: 700px;
-            margin: 15px auto;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .medios-contacto h2 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
-
-        .medios-contacto p {
-            font-size: 0.85rem;
-            color: #ccc;
-        }
-
-        /* Botón de WhatsApp */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 15px;
-            right: 15px;
-            background-color: #25d366;
-            border-radius: 8px;
-            padding: 8px;
-            text-decoration: none;
-            color: white;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .whatsapp-icon {
-            width: 20px;
-            height: 20px;
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 1.8rem;
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px 0;
             }
-
-            .navbar a {
-                font-size: 14px;
-            }
-
-            .mision, .vision {
-                margin: 10px 0;
-            }
-
-            .medios-contacto {
-                padding: 10px;
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
             }
         }
     </style>
@@ -201,3 +98,4 @@
     </a>
 </body>
 </html>
+
