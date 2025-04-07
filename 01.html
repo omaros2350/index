@@ -1,57 +1,77 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ESPI</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-image: url('img/fondo.jpg');
-      background-size: cover;
-      background-position: center;
-      color: white;
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-      padding: 20px;
-    }
-
-    .logo {
-      width: 80px;
-      height: auto;
-    }
-
-    h1 {
-      text-align: center;
-      margin-top: 100px;
-      font-size: 50px;
-      color: white;
-    }
-
-    footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      text-align: center;
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 10px 0;
-      font-size: 14px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Centro de Estudios Profesionales y de Investigación ESPI. S.C.">
+    <meta name="keywords" content="ESPI, educación">
+    <meta name="author" content="ESPI">
+    <title>Centro de Estudios Profesionales y de Investigación ESPI. S.C.</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('imagen.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .hero {
+            text-align: center;
+            padding: 120px 20px 50px;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+        }
+        .hero img {
+            height: 80px;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-in-out, pulse 2s infinite;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+            margin: 0;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            font-size: 0.9rem;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <img src="img/logo.png" alt="Logo de ESPI" class="logo" />
-  </header>
+    <!-- Hero section -->
+    <div class="hero">
+        <img src="ESPI.png" alt="Logo ESPI">
+        <h1>Bienvenidos a ESPI</h1>
+    </div>
 
-  <h1>Bienvenidos a ESPI</h1>
-
-  <footer>
-    Dirección: Calle Educación #123, Ciudad de México, México
-  </footer>
+    <!-- Pie de página -->
+    <div class="footer">
+        <p>Terminó el curso: [FECHA]</p>
+        <p>Nombre: [NOMBRE DE LA PERSONA]</p>
+        <p>Taller: [NOMBRE DEL TALLER]</p>
+    </div>
 </body>
 </html>
